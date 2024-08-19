@@ -1,5 +1,5 @@
 import torch
-import deepspeed
+# import deepspeed
 import jsonlines
 
 from torch.nn.utils.rnn import pad_sequence
@@ -54,7 +54,7 @@ training_args = TrainingArguments(
     fp16=False,
     logging_strategy="steps",
     logging_steps=1,  # Log every 1 steps
-    deepspeed="ds_config.json"
+    # deepspeed="ds_config.json"
 )
 
 # Initialize the Trainer with custom collate_fn

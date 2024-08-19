@@ -3,3 +3,5 @@
 __pycache__/
 outputs/
 images/
+model/
+Anole-7b-v0.1/
