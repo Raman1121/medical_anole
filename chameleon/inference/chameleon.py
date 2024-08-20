@@ -680,10 +680,13 @@ class ChameleonInferenceModel:
         output_data = []
         for entry in tqdm(jsonl_input, desc="Tokenize dataset"):
             # print(i)
-            text_tokens = self.token_manager.tokenize_text(entry['text'])
-            image_tokens = self.token_manager.tokenize_image(PIL.Image.open(entry['image']))
-            entry['text_tokens'] = text_tokens 
-            entry['image_tokens'] = image_tokens
-            output_data.append(entry)
+            try:
+                text_tokens = self.token_manager.tokenize_text(entry['text'])
+                image_tokens = self.token_manager.tokenize_image(PIL.Image.open(entry['image']))
+                entry['text_tokens'] = text_tokens 
+                entry['image_tokens'] = image_tokens
+                output_data.append(entry)
+            except:
+                continue
         
         return output_data
